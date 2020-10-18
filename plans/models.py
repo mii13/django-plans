@@ -26,6 +26,7 @@ from django.utils.translation import ugettext_lazy as _, pgettext_lazy
 from django_countries.fields import CountryField
 from ordered_model.models import OrderedModel
 from django.core.exceptions import ImproperlyConfigured, ValidationError
+from django.contrib.postgres.fields import JSONField
 
 from plans.enumeration import Enumeration
 from plans.validators import plan_validation
@@ -76,6 +77,7 @@ class Plan(OrderedModel):
         on_delete=models.CASCADE
     )
     quotas = models.ManyToManyField('Quota', through='PlanQuota')
+    attributes = JSONField(default={}, blank=True)
     url = models.URLField(max_length=200, blank=True, help_text=_(
         'Optional link to page with more information (for clickable pricing table headers)'))
 

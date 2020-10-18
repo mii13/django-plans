@@ -26,11 +26,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'travis_ci_test',  # Or path to database file if using sqlite3.
-        'USER': 'postgres',  # Not used with sqlite3.
-        'PASSWORD': '',  # Not used with sqlite3.
-        'HOST': '',  # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',  # Set to empty string for default. Not used with sqlite3.
+        'NAME': os.getenv('DB_NAME', 'travis_ci_test'),  # Or path to database file if using sqlite3.
+        'USER': os.getenv('DB_USER', 'postgres'),  # Not used with sqlite3.
+        'PASSWORD': os.getenv('DB_PASSWORD', ''),  # Not used with sqlite3.
+        'HOST': os.getenv('DB_HOST', ''), # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': os.getenv('DB_PORT', ''), # Set to empty string for default. Not used with sqlite3.
     }
 }
 
