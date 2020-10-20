@@ -77,7 +77,7 @@ class Plan(OrderedModel):
         on_delete=models.CASCADE
     )
     quotas = models.ManyToManyField('Quota', through='PlanQuota')
-    attributes = JSONField(default={}, blank=True)
+    attributes = JSONField(default=dict, blank=True)
     url = models.URLField(max_length=200, blank=True, help_text=_(
         'Optional link to page with more information (for clickable pricing table headers)'))
 

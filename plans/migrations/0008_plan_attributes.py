@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='plan',
             name='attributes',
-            field=django.contrib.postgres.fields.jsonb.JSONField(default={}),
+            field=django.contrib.postgres.fields.jsonb.JSONField(default=dict),
         ),
     ]
